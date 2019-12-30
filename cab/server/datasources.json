@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "shridb": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "newproject",
+    "password": "newrootpassword",
+    "name": "shridb",
+    "connector": "mysql",
+    "user": "root"
+  }
+}
