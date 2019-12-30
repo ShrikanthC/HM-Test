@@ -1,0 +1,110 @@
+{
+  "name": "car",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "schema": "newproject",
+    "table": "car"
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true,
+      "length": 11,
+      "mysql": {
+        "columnName": "id",
+        "dataType": "int",
+        "dataLength": 11,
+        "nullable": "N"
+      }
+    },
+    "carName": {
+      "type": "string",
+      "required": true,
+      "length": 100,
+      "mysql": {
+        "columnName": "car_name",
+        "dataType": "varchar",
+        "dataLength": 100,
+        "nullable": "Y"
+      }
+    },
+    "carNumber": {
+      "type": "string",
+      "required": true,
+      "length": 100,
+      "mysql": {
+        "columnName": "car_number",
+        "dataType": "varchar",
+        "dataLength": 100,
+        "nullable": "Y"
+      }
+    },
+    "createdOn": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "default": "$now",
+      "mysql": {
+        "columnName": "created_on",
+        "dataType": "timestamp",
+        "dataLength": null,
+        "dataPrecision": null,
+        "nullable": "Y"
+      }
+    },
+    "updatedOn": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "default": "$now",
+      "mysql": {
+        "columnName": "updated_on",
+        "dataType": "timestamp",
+        "dataLength": null,
+        "nullable": "Y"
+      }
+    },
+    "isDeleted": {
+      "type": "number",
+      "required": true,
+      "length": null,
+      "mysql": {
+        "columnName": "is_deleted",
+        "dataType": "Boolean",
+        "dataLength": null,
+        "nullable": "Y"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "saveOrUpdate": {
+      "accepts": [
+        {
+          "arg": "data",
+          "type": "object",
+          "http": {
+            "source": "body"
+          },
+          "required": true
+        }
+      ],
+      "returns": {
+        "arg": "data",
+        "type": "object",
+        "root": true
+      },
+      "description": "create or edit cars",
+      "http": {
+        "verb": "POST",
+        "path": "/saveOrUpdate"
+      }
+    }
+  }
+}

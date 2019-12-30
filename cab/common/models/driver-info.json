@@ -1,0 +1,62 @@
+{
+  "name": "driverInfo",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "schema": "newproject",
+    "table": "driver_info"
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true,
+      "length": 11,
+      "mysql": {
+        "columnName": "id",
+        "dataType": "int",
+        "dataLength": 11,
+        "nullable": "N"
+      }
+    },
+    "DriverId": {
+      "type": "number",
+      "required": true,
+      "length": 11,
+      "mysql": {
+        "columnName": "driver_id",
+        "dataType": "int",
+        "dataLength": 11,
+        "nullable": "N"
+      }
+    },
+    "carId": {
+      "type": "number",
+      "required": true,
+      "length": 11,
+      "mysql": {
+        "columnName": "car_id",
+        "dataType": "int",
+        "dataLength": 11,
+        "nullable": "N"
+      }
+    },
+    "isDeleted": {
+      "type": "number",
+      "required": true,
+      "length": null,
+      "mysql": {
+        "columnName": "is_deleted",
+        "dataType": "Boolean",
+        "dataLength": null,
+        "nullable": "Y"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
