@@ -1,13 +1,27 @@
 'use strict';
 
-module.exports = function(Driverinfo) {
+module.exports = function (Driverinfo) {
 
-    Driverinfo.saveOrUpdate = (request,type,callback)=>{
-        if(request && request.driverId && request.carId){
-            Driverinfo.find({"where":{"or":[{"driverId":request.driverId}]}})
+    Driverinfo.create = (request, type, callback) => {
 
-        }else{
-            return callback(null,{"message":"Bad Request"})
+        if (!request.id) {
+            Driverinfo.find({ "where": { "driverId": request.driverId }, "fields": ['carId'] }).then(driverData => {
+                if (driverData.length > 0) {
+                    return callback(null, error)
+                } else if (request.carId) {
+                    Driverinfo.find({ "where": { "carId": request.caarId }, "fields": ['driverId'] }).then(carData => {
+                        if (carData.length > 0) {
+                            return callback(null, error)
+                        }
+                    })
+                }
+                else {
+                    Driverinfo.create(request)
+                }
+            })
+
+        } else {
+            return callback(null, { "message": "Bad Request" })
         }
     }
 
