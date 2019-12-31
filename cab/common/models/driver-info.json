@@ -58,5 +58,28 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "saveOrUpdate": {
+      "accepts": [
+        {
+          "arg": "data",
+          "type": "object",
+          "http": {
+            "source": "body"
+          },
+          "required": true
+        }
+      ],
+      "returns": {
+        "arg": "data",
+        "type": "object",
+        "root": true
+      },
+      "description": "create or edit cars",
+      "http": {
+        "verb": "POST",
+        "path": "/saveOrUpdate"
+      }
+    }
+  }
 }
